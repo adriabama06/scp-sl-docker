@@ -35,5 +35,5 @@ RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir /home/steam/scpsl-server
 # Volumen para configuración persistente (se creará en tiempo de ejecución)
 VOLUME ["/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT}"]
 
-ENTRYPOINT [ "sh" ]
+ENTRYPOINT [ "sh", "-c" ]
 CMD [ "/home/steam/scpsl-server/entrypoint.sh" ]
