@@ -12,7 +12,7 @@ services:
     ports:
       - "${SCPSL_PORT:-7777}:${SCPSL_PORT:-7777}/udp"
     volumes:
-      - ${SCPSL_CONFIG_DIR}:/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT:-7777}/
+      - ${SCPSL_CONFIG_DIR:-./data}:/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT:-7777}/
       - ./entrypoint.sh:/home/steam/scpsl-server/entrypoint.sh
     #restart: unless-stopped
     stdin_open: true # yes | keep | global
