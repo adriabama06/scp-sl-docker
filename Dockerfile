@@ -1,7 +1,7 @@
+FROM cm2network/steamcmd:root
+
 ARG SCPSL_PORT=7777
 ENV SCPSL_PORT=${SCPSL_PORT}
-
-FROM cm2network/steamcmd:root
 
 # Cambiar a usuario root para instalación
 USER root
