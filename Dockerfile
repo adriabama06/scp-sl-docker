@@ -31,9 +31,6 @@ WORKDIR /home/steam/scpsl-server
 # Descargar el servidor dedicado
 RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir /home/steam/scpsl-server +login anonymous +app_update 996560 validate +quit
 
-# Exponer puertos principales (juego, query, RCON)
-EXPOSE $SCPSL_PORT/udp
-
 # Volumen para configuración persistente (se creará en tiempo de ejecución)
 VOLUME ["/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT}"]
 
