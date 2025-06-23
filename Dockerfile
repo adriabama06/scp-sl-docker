@@ -1,4 +1,4 @@
-ARG SCPSL_PORT
+ARG SCPSL_PORT=7777
 
 FROM cm2network/steamcmd:root
 
@@ -21,7 +21,7 @@ RUN mkdir -p /home/steam/scpsl-server && \
     chown steam:steam -R /home/steam/scpsl-server
 
 # Crear directorio de configuracion para el servidor
-RUN mkdir -p "/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT:-7777}" && \
+RUN mkdir -p "/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT}" && \
     chown steam:steam -R "/home/steam/.config"
 
 # Cambiar a usuario steam
@@ -32,10 +32,10 @@ WORKDIR /home/steam/scpsl-server
 RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir /home/steam/scpsl-server +login anonymous +app_update 996560 validate +quit
 
 # Exponer puertos principales (juego, query, RCON)
-EXPOSE ${SCPSL_PORT:-7777}/udp
+EXPOSE ${SCPSL_PORT}/udp
 
 # Volumen para configuración persistente (se creará en tiempo de ejecución)
-VOLUME ["/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT:-7777}"]
+VOLUME ["/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT}"]
 
 ENTRYPOINT [ "sh" ]
 CMD ["/home/steam/scpsl-server/entrypoint.sh"]
