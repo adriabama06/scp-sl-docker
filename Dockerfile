@@ -35,4 +35,4 @@ RUN /home/steam/steamcmd/steamcmd.sh +force_install_dir /home/steam/scpsl-server
 VOLUME ["/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT}"]
 
 ENTRYPOINT [ "sh" ]
-CMD ["/home/steam/scpsl-server/entrypoint.sh"]
+CMD [ "/home/steam/scpsl-server/entrypoint.sh" ]

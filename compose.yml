@@ -7,13 +7,19 @@ services:
         - SCPSL_PORT=${SCPSL_PORT:-7777}
     container_name: scpsl-server
     network_mode: host # Why? Well... Because idk why after some minutes of gameplay kicks everyone by a network error
-    environment:
-      - SCPSL_PORT=${SCPSL_PORT:-7777}
     ports:
       - "${SCPSL_PORT:-7777}:${SCPSL_PORT:-7777}/udp"
     volumes:
-      - ${SCPSL_CONFIG_DIR:-./data}:/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT:-7777}/
+      - "scpsl_config:/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT:-7777}/"
       - ./entrypoint.sh:/home/steam/scpsl-server/entrypoint.sh
-    #restart: unless-stopped
+    restart: unless-stopped
     stdin_open: true # yes | keep | global
     tty: true
+
+volumes:
+  scpsl_config:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ${SCPSL_CONFIG_DIR:-./data}
