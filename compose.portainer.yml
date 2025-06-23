@@ -15,7 +15,7 @@ services:
     volumes:
       - "scpsl_config:/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT:-7777}/"
       - ./entrypoint.sh:/home/steam/scpsl-server/entrypoint.sh
-    entrypoint: echo "Using port ${SCPSL_PORT:-7777}" && ./LocalAdmin ${SCPSL_PORT:-7777} -d
+    entrypoint: echo \"Using port ${SCPSL_PORT:-7777}\" && ./LocalAdmin ${SCPSL_PORT:-7777} -d
     command: [] # empty command
     restart: unless-stopped
     stdin_open: true # yes | keep | global
