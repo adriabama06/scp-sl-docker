@@ -1,11 +1,11 @@
 services:
-  scpsl-server:
+  scp-sl-server:
     build:
       dockerfile: Dockerfile
       context: .
       args:
         - SCPSL_PORT=${SCPSL_PORT:-7777}
-    container_name: scpsl-server
+    container_name: scp-sl-server
     network_mode: host # Why? Well... Because idk why after some minutes of gameplay kicks everyone by a network error
     ports:
       - "${SCPSL_PORT:-7777}:${SCPSL_PORT:-7777}/udp"
@@ -22,7 +22,7 @@ services:
     tty: true
 
 volumes:
-  scpsl_config:
+  config:
     driver: local
     driver_opts:
       type: none
