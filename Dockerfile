@@ -1,4 +1,5 @@
 ARG SCPSL_PORT=7777
+ENV SCPSL_PORT=${SCPSL_PORT}
 
 FROM cm2network/steamcmd:root
 
