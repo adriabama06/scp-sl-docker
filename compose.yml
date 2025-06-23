@@ -11,6 +11,7 @@ services:
       - "${SCPSL_PORT:-7777}:${SCPSL_PORT:-7777}/udp"
     environment:
       - SCPSL_PORT=${SCPSL_PORT:-7777}
+      - ACCEPT_SCPSL_EULA=TRUE
     volumes:
       - "scpsl_config:/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT:-7777}/"
       - ./entrypoint.sh:/home/steam/scpsl-server/entrypoint.sh
