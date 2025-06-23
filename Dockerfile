@@ -25,10 +25,6 @@ RUN mkdir -p /home/steam/scpsl-server && \
 RUN mkdir -p "/home/steam/.config/SCP Secret Laboratory/config/${SCPSL_PORT}" && \
     chown steam:steam -R "/home/steam/.config"
 
-# [TEST] Crear directorio de configuracion para el servidor
-RUN mkdir -p "/home/steam/.config/SCP Secret Laboratory/config/test_${SCPSL_PORT}" && \
-    chown steam:steam -R "/home/steam/.config"
-
 # Cambiar a usuario steam
 USER steam
 WORKDIR /home/steam/scpsl-server
