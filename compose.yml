@@ -6,7 +6,7 @@ services:
       args:
         - SCPSL_PORT=${SCPSL_PORT:-7777}
     container_name: scpsl-server
-    network_mode: host # Why? Well... Because idk why after some minutes of gameplay kicks everyone by a network error
+    #network_mode: host # Why? Well... Because idk why after some minutes of gameplay kicks everyone by a network error
     ports:
       - "${SCPSL_PORT:-7777}:${SCPSL_PORT:-7777}/udp"
     environment:
